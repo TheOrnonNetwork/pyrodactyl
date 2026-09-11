@@ -1,40 +1,35 @@
 // million-ignore
 //
-// ─────────────────────────────────────────────────────────────────────────────
-// ORNON BRANDING — TEMPORARY PLACEHOLDER WORDMARK
-//
-// This renders a plain "Ornon" text wordmark using `currentColor` so the panel
-// no longer shows the upstream Pyrodactyl mark. It is intentionally a stand-in.
-//
-// TO DROP IN THE REAL LOGO: replace the <svg>…</svg> returned below with the
-// exported Ornon wordmark SVG (keep the default export name `Logo`, the
-// `{ className, uniqueId }` prop signature, and the `className` fallback so the
-// existing call sites — login page, sidebar, mobile top bar, auth screens —
-// keep working). If the real mark uses a gradient, give it an id derived from
-// `uniqueId` (as the old mark did) so multiple instances on one page don't
-// collide.
-// ─────────────────────────────────────────────────────────────────────────────
+// Ornon (The Ornon Network) logo — the isometric "TON" cube mark.
+// Vector, inlined from the brand asset (logo-newcolors.svg). Square viewBox with
+// default preserveAspectRatio keeps the mark undistorted and centered in the
+// wide sidebar/login slots. Colors are the fixed brand marks (rust T, green O,
+// teal N) and are independent of the UI accent palette.
 const Logo = ({ className, uniqueId: _uniqueId }: { className?: string; uniqueId?: string } = {}) => {
     return (
         <svg
             xmlns='http://www.w3.org/2000/svg'
             className={className || 'flex h-full w-full shrink-0'}
-            width='284'
-            height='61'
+            viewBox='0 0 567 567'
             fill='none'
-            viewBox='0 0 284 61'
         >
-            <text
-                x='0'
-                y='44'
-                fill='currentColor'
-                fontFamily="'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif"
-                fontSize='44'
-                fontWeight='700'
-                letterSpacing='-1'
-            >
-                Ornon
-            </text>
+            <g transform='matrix(2.834646,0,0,2.834646,0,0)'>
+                <path
+                    d='M99.593,12.5L25.981,55L99.593,97.5L173.205,55L99.593,12.5ZM99.593,32.5L138.564,55L99.593,77.5L60.622,55L99.593,32.5Z'
+                    fill='#528a38'
+                    fillRule='nonzero'
+                />
+                <path
+                    d='M173.205,65L155.885,75L155.885,120L116.913,97.5L103.923,105L103.923,185L121.244,175L121.244,130L160.215,152.5L173.205,145L173.205,65Z'
+                    fill='#1f6275'
+                    fillRule='nonzero'
+                />
+                <path
+                    d='M25.981,65L25.981,85L47.631,97.5L47.631,157.5L69.282,170L69.282,110L95.263,125L95.263,105L25.981,65Z'
+                    fill='#a94837'
+                    fillRule='nonzero'
+                />
+            </g>
         </svg>
     );
 };
