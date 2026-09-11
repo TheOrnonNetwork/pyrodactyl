@@ -73,7 +73,7 @@ const PowerButtons = ({ className }: PowerButtonProps) => {
                         status === 'offline'
                             ? {
                                   background:
-                                      'radial-gradient(109.26% 109.26% at 49.83% 13.37%, #ba76f9 0%, #8cacd4 100%)',
+                                      'radial-gradient(109.26% 109.26% at 49.83% 13.37%, #a94837 0%, #c96b56 100%)',
                                   opacity: 1,
                               }
                             : {
@@ -113,7 +113,7 @@ const PowerButtons = ({ className }: PowerButtonProps) => {
                               }
                             : {
                                   background:
-                                      'radial-gradient(109.26% 109.26% at 49.83% 13.37%, #ba76f9 0%, #8cacd4 100%)',
+                                      'radial-gradient(109.26% 109.26% at 49.83% 13.37%, #a94837 0%, #c96b56 100%)',
                                   opacity: 1,
                               }
                     }

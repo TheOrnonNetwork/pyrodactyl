@@ -73,9 +73,14 @@ RUN if [ "$DEV" = "true" ]; then \
     exit 0
 
 # Env, directories, permissions
+# Only bootstrap/ and storage/ need to be writable by the web user (nginx); the
+# rest of /app is read-only at runtime and stays root-owned + world-readable.
+# Scoping chown/chmod to these two trees (instead of `chown -R nginx:nginx .`)
+# avoids an overlayfs copy-up of the whole vendor/ tree, which turned this layer
+# into a multi-minute step on spinning disks.
 RUN mkdir -p bootstrap/cache storage/logs storage/framework/sessions storage/framework/views storage/framework/cache; \
     rm -rf bootstrap/cache/*.php; \
-    chown -R nginx:nginx .; \
+    chown -R nginx:nginx bootstrap storage; \
     chmod -R 777 bootstrap storage; \
     cp .env.example .env || true;
 
