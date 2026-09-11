@@ -1,4 +1,4 @@
-name: Build & Push Version (reusable)
+name: Build Ornon Panel (release)
 
 on:
   release:
@@ -36,6 +36,7 @@ jobs:
           context: .
           push: true
           platforms: linux/amd64,linux/arm64
+          # A release only publishes its version tag; the `latest` tag is owned
+          # by the push-to-main build (dev-build.yaml) so `latest` tracks main.
           tags: |
-            ghcr.io/${{ github.repository }}:${{ github.ref_name }}
-            ghcr.io/${{ github.repository }}:latest
+            ghcr.io/theornonnetwork/ornon-panel:${{ github.ref_name }}

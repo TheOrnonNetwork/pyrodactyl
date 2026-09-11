@@ -1,4 +1,4 @@
-name: Docker Build
+name: Build Ornon Panel
 
 on:
   push:
@@ -10,7 +10,7 @@ permissions:
     contents: read
 
 jobs:
-  build-dev:
+  build-ornon:
     runs-on: blacksmith-4vcpu-ubuntu-2404
     steps:
       - name: Checkout code
@@ -31,13 +31,14 @@ jobs:
       - name: Setup Blacksmith Builder
         uses: useblacksmith/setup-docker-builder@v1
 
-      - name: Build and push canary image
+      - name: Build and push Ornon panel image
         uses: useblacksmith/build-push-action@v2
         with:
           context: .
           push: true
+          # GHCR image paths must be lowercase, so the owner is hardcoded rather
+          # than taken from ${{ github.repository_owner }} (TheOrnonNetwork).
           tags: |
-            ghcr.io/${{ github.repository }}:canary
-            ghcr.io/${{ github.repository }}:canary-${{ github.sha }}
+            ghcr.io/theornonnetwork/ornon-panel:latest
+            ghcr.io/theornonnetwork/ornon-panel:${{ github.sha }}
           platforms: linux/amd64,linux/arm64
-

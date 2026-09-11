@@ -21,7 +21,7 @@
       <h3 class="box-title">System Information</h3>
       </div>
       <div class="box-body">
-      You are running Pyrodactyl panel version <code>{{ config('app.version') }}</code>.
+      You are running Ornon panel version <code>{{ config('app.version') }}</code> <small>(built on Pyrodactyl)</small>.
       </div>
 
       <!-- <div aria-hidden="true"
